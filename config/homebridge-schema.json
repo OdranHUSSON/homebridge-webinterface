@@ -1,0 +1,178 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "bridge": {
+      "$id": "/properties/bridge",
+      "type": "object",
+      "properties": {
+        "name": {
+          "$id": "/properties/bridge/properties/name",
+          "type": "string",
+          "title": "The Name Schema ",
+          "default": "",
+          "examples": [
+            "Homebridge chambre"
+          ]
+        },
+        "username": {
+          "$id": "/properties/bridge/properties/username",
+          "type": "string",
+          "title": "The Username Schema ",
+          "default": "",
+          "examples": [
+            "CC:22:3D:E3:CE:30"
+          ]
+        },
+        "port": {
+          "$id": "/properties/bridge/properties/port",
+          "type": "integer",
+          "title": "The Port Schema ",
+          "default": 0,
+          "examples": [
+            51826
+          ]
+        },
+        "pin": {
+          "$id": "/properties/bridge/properties/pin",
+          "type": "string",
+          "title": "The Pin Schema ",
+          "default": "",
+          "examples": [
+            "037-13-161"
+          ]
+        }
+      }
+    },
+    "description": {
+      "$id": "/properties/description",
+      "type": "string",
+      "title": "The Description Schema ",
+      "default": "",
+      "examples": [
+        "Hombridge chambre et bureau"
+      ]
+    },
+    "accessories": {
+      "$id": "/properties/accessories",
+      "type": "array",
+      "items": {
+        "$id": "/properties/accessories/items",
+        "type": "object",
+        "properties": {
+          "accessory": {
+            "$id": "/properties/accessories/items/properties/accessory",
+            "type": "string",
+            "title": "The Accessory Schema ",
+            "default": "",
+            "examples": [
+              "NetworkDevice"
+            ]
+          },
+          "name": {
+            "$id": "/properties/accessories/items/properties/name",
+            "type": "string",
+            "title": "The Name Schema ",
+            "default": "",
+            "examples": [
+              "PC"
+            ]
+          },
+          "mac": {
+            "$id": "/properties/accessories/items/properties/mac",
+            "type": "string",
+            "title": "The Mac Schema ",
+            "default": "",
+            "examples": [
+              "00:19:99:8e:3d:af"
+            ]
+          },
+          "pingInterval": {
+            "$id": "/properties/accessories/items/properties/pingInterval",
+            "type": "integer",
+            "title": "The Pinginterval Schema ",
+            "default": 0,
+            "examples": [
+              45
+            ]
+          },
+          "wakeCommand": {
+            "$id": "/properties/accessories/items/properties/wakeCommand",
+            "type": "string",
+            "title": "The Wakecommand Schema ",
+            "default": "",
+            "examples": [
+              "ssh 192.168.1.51 caffeinate -u -t 300"
+            ]
+          },
+          "wakeGraceTime": {
+            "$id": "/properties/accessories/items/properties/wakeGraceTime",
+            "type": "integer",
+            "title": "The Wakegracetime Schema ",
+            "default": 0,
+            "examples": [
+              90
+            ]
+          },
+          "shutdownGraceTime": {
+            "$id": "/properties/accessories/items/properties/shutdownGraceTime",
+            "type": "integer",
+            "title": "The Shutdowngracetime Schema ",
+            "default": 0,
+            "examples": [
+              15
+            ]
+          },
+          "ip": {
+            "$id": "/properties/accessories/items/properties/ip",
+            "type": "string",
+            "title": "The Ip Schema ",
+            "default": "",
+            "examples": [
+              "192.168.1.31"
+            ]
+          },
+          "shutdownCommand": {
+            "$id": "/properties/accessories/items/properties/shutdownCommand",
+            "type": "string",
+            "title": "The Shutdowncommand Schema ",
+            "default": "",
+            "examples": [
+              "sudo net rpc shutdown --ipaddress 192.168.1.31 --user odran%poneyponey"
+            ]
+          }
+        }
+      }
+    },
+    "platforms": {
+      "$id": "/properties/platforms",
+      "type": "array",
+      "items": {
+        "$id": "/properties/platforms/items",
+        "type": "object",
+        "properties": {
+          "platform": {
+            "$id": "/properties/platforms/items/properties/platform",
+            "type": "string",
+            "title": "The Platform Schema ",
+            "default": "",
+            "examples": [
+              "PhilipsHue"
+            ]
+          },
+          "name": {
+            "$id": "/properties/platforms/items/properties/name",
+            "type": "string",
+            "title": "The Name Schema ",
+            "default": "",
+            "examples": [
+              "Hue"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
