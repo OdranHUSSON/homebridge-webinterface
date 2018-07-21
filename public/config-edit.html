@@ -21,6 +21,8 @@
 </head>
 
 <body>
+<h1>Default json edit page</h1>
+<h2>Todo : real CSS clean JS</h2>
   <div class='row'>
     <div class='medium-12-columns'>
       <button id='submit' class='tiny'>Submit (console.log)</button>
@@ -33,9 +35,11 @@
   </div>
 
   <script>
+    //TODO CLEAN JS WITH DELEGATION AND REAL JQUERY
+    var server ="http://localhost:8000/api/";
     var starting_value;
-    $.getJSON("config/config.json", function(data) {
-      starting_value = data;
+    $.get(server + "homebridgeConfig", function(data) {
+      starting_value = JSON.parse(data['data']);
 
       var editor = new JSONEditor(document.getElementById('editor_holder'), {
         // Enable fetching schemas via ajax
@@ -55,6 +59,17 @@
       document.getElementById('submit').addEventListener('click', function() {
         // Get the value from the editor
         console.log(editor.getValue());
+
+        data = {"data" : JSON.stringify(editor.getValue())};
+        $.post(server+"homebridgeConfig", data, function() {
+            // UPDATE OK
+
+            $.get(server + "homebridgeConfig", function(data) {
+                starting_value = JSON.parse(data['data']);
+                editor.setValue(starting_value);
+            })
+
+        });
       });
 
       // Hook up the Restore to Default button
