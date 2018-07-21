@@ -14,3 +14,10 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('homebridgeConfig',  ['uses' => 'homebridgeConfigController@getConfig']);
+
+    $router->post('homebridgeConfig', ['uses' => 'homebridgeConfigController@writeConfig']);
+    $router->delete('homebridgeConfig', ['uses' => 'homebridgeConfigController@resetConfig']);
+});
