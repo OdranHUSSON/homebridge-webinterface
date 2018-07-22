@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Front end test</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <h1 data-api="name">Loading</h1>
+    <h2 data-api="username">Loading</h2>
+    <h2 data-api="port">Loading</h2>
+    <h2 data-api="pin">Loading</h2>
+    <a href="config-edit.html">Edit config</a>
+    <script type="text/javascript">
+        function api_get(route,callback) {
+            var server = location.protocol + "//" + location.host + "/api/";
+            $.get(server + route, function(data) {
+               if( data.result === "OK" ) {
+                   if(typeof callback == "function") {
+                       callback(data.data);
+                   }
+                   else {
+                       return data.data;
+                   }
+               }
+            });
+        }
+
+        api_get('BridgeInformations', function(data) {
+            $('[data-api="name"]').html(data.name);
+            $('[data-api="username"]').html(data.username);
+            $('[data-api="port"]').html(data.port);
+            $('[data-api="pin"]').html(data.pin);
+        })
+
+    </script>
+</body>
+</html>

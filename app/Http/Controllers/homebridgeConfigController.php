@@ -15,6 +15,13 @@ class homebridgeConfigController
     }
 
     /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getSchema() {
+        return response()->json((new \App\homebridgeConfig)->getSchema());
+    }
+
+    /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -27,6 +34,13 @@ class homebridgeConfigController
      */
     public function resetConfig() {
         return response()->json((new \App\homebridgeConfig)->resetConfig());
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getBridgeInformations() {
+        return response()->json((new \App\homebridgeConfig)->getBridgeInformations());
     }
 
 }

@@ -17,7 +17,10 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('homebridgeConfig',  ['uses' => 'homebridgeConfigController@getConfig']);
-
+    $router->get('homebridgeSchema',  ['uses' => 'homebridgeConfigController@getSchema']);
     $router->post('homebridgeConfig', ['uses' => 'homebridgeConfigController@writeConfig']);
     $router->delete('homebridgeConfig', ['uses' => 'homebridgeConfigController@resetConfig']);
+
+
+    $router->get('BridgeInformations',  ['uses' => 'homebridgeConfigController@getBridgeInformations']);
 });

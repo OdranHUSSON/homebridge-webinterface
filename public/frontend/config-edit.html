@@ -36,7 +36,7 @@
 
   <script>
     //TODO CLEAN JS WITH DELEGATION AND REAL JQUERY
-    var server = window.location.origin +"/api/";
+    var server = location.protocol + "//" + location.host + "/api/";
     var starting_value;
     $.get(server + "homebridgeConfig", function(data) {
       starting_value = JSON.parse(data['data']);
@@ -47,7 +47,7 @@
 
         // The schema for the editor
         schema: {
-          $ref: "config/homebridge-schema.json",
+          $ref: server + "homebridgeSchema",
           format: "grid"
         },
 
