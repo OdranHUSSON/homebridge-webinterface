@@ -16,3 +16,11 @@ Using :
  - lumen php framekwork
  - json editor
  - jquery
+
+
+## TO ADD IN WIKI
+
+how to install the cron in crontab
+
+how the cron allow the use of debian commands safely
+how does the cron work
