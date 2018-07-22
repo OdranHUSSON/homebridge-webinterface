@@ -24,4 +24,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->get('bridgeInformations',  ['uses' => 'homebridgeConfigController@getBridgeInformations']);
     $router->get('qrCode',  ['uses' => 'homebridgeConfigController@getQrCode']);
+
+    $router->get('restart',  ['uses' => 'serverAdminController@askForRestart']);
+    $router->get('status',  ['uses' => 'serverAdminController@isHomebridgeOnline']);
 });

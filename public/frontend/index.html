@@ -17,10 +17,21 @@
     <h2 data-api="port">Loading</h2>
     <h2 data-api="pin">Loading</h2>
     <img id="qrcode" src="" alt="" />
+
+    <p>Server status : <span id="status">Offline</span></p>
     <a href="config-edit.html">Edit config</a>
+    <a id="restart" href="#">Restart server</a>
     <script type="text/javascript">
 
-        var server = location.protocol + "//" + location.host + "/";
+        $('#restart').click(function() {
+            var api = location.protocol + "//" + location.host + "/api/";
+            $.get(api + "restart", function() {
+                alert('restart asked');
+            })
+        })
+
+        var host = location.protocol + "//" + location.host + "/";
+        var hostname = location.protocol + "//" + location.hostname;
         function api_get(route,callback) {
             var api = location.protocol + "//" + location.host + "/api/";
             $.get(api + route, function(data) {
@@ -43,8 +54,15 @@
         });
 
         api_get('qrCode', function(data) {
-            $('#qrcode').attr("src",server + data);
+            $('#qrcode').attr("src",host + data);
         });
+
+        function check_status() {
+            api_get('status', function(data) {
+                $('#status').html(data);
+            })
+        }
+        setInterval(check_status(),20);
 
     </script>
 </body>

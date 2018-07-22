@@ -106,6 +106,16 @@ class homebridgeConfig extends Model
         ];
     }
 
+    /**
+     * @return array
+     */
+    public function getPort() {
+        return [
+            "result" => "OK",
+            "data" => $this->jsonDecodeConfig()->bridge->port
+        ];
+    }
+
     public function getQrCode() {
         QRcode::png($this->getPin()['data'],"images/qrcode.png", 'L', '20');
         return [
