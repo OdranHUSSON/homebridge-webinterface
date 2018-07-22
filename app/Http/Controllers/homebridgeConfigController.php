@@ -43,4 +43,11 @@ class homebridgeConfigController
         return response()->json((new \App\homebridgeConfig)->getBridgeInformations());
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getQrCode() {
+        return response()->json((new \App\homebridgeConfig)->getQrCode());
+    }
+
 }

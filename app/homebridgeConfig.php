@@ -3,6 +3,7 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use PHPQRCode\QRcode;
 
 class homebridgeConfig extends Model
 {
@@ -92,6 +93,24 @@ class homebridgeConfig extends Model
         return [
             "result" => "OK",
             "data" => $this->jsonDecodeConfig()->bridge
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getPin() {
+        return [
+            "result" => "OK",
+            "data" => $this->jsonDecodeConfig()->bridge->pin
+        ];
+    }
+
+    public function getQrCode() {
+        QRcode::png($this->getPin()['data'],"images/qrcode.png", 'L', '20');
+        return [
+            "result" => "OK",
+            "data" => "images/qrcode.png"
         ];
     }
 

@@ -22,5 +22,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->delete('homebridgeConfig', ['uses' => 'homebridgeConfigController@resetConfig']);
 
 
-    $router->get('BridgeInformations',  ['uses' => 'homebridgeConfigController@getBridgeInformations']);
+    $router->get('bridgeInformations',  ['uses' => 'homebridgeConfigController@getBridgeInformations']);
+    $router->get('qrCode',  ['uses' => 'homebridgeConfigController@getQrCode']);
 });
